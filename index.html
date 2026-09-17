@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>5 Letter Words</title>
-    <meta name="description" content="Find 5 letter words quickly using known, misplaced, and excluded letters.">
 
-    <link rel="canonical" href="https://5letter-words.io/">
+    <meta name="description" content="Explore 5 letter words and discover useful word ideas for word puzzles, games, and daily challenges.">
 
     <style>
         * {
@@ -16,87 +15,242 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #263238;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1050px;
+            margin: 0 auto;
         }
 
         header {
             background: #ffffff;
-            padding: 20px;
+            border-bottom: 1px solid #e4e8ee;
+            padding: 28px 0;
+        }
+
+        .header-content {
             text-align: center;
-            border-bottom: 1px solid #ddd;
         }
 
-        header h1 {
+        .logo {
+            font-size: 30px;
+            font-weight: 700;
+            color: #263238;
             margin: 0;
-            font-size: 32px;
         }
 
-        main {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
+        .tagline {
+            margin: 7px 0 0;
+            color: #6b7280;
+            font-size: 16px;
         }
 
-        .search-box {
+        .hero {
+            background: #ffffff;
+            margin: 30px auto 24px;
+            padding: 50px 35px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .hero h1 {
+            margin: 0 0 15px;
+            font-size: 38px;
+            line-height: 1.25;
+            color: #1f2937;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #5f6b76;
+            font-size: 17px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 38px 0 20px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 28px;
+            color: #1f2937;
+        }
+
+        .section-title p {
+            margin: 7px 0 0;
+            color: #6b7280;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
             background: #ffffff;
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-radius: 14px;
+            border: 1px solid #e5e9ef;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
         }
 
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 6px;
-            font-weight: bold;
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #263238;
         }
 
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 16px;
+        .card p {
+            margin: 0;
+            color: #66717c;
+            font-size: 15px;
         }
 
-        button {
+        .content-box {
+            background: #ffffff;
             margin-top: 20px;
-            padding: 12px 22px;
-            border: 0;
-            border-radius: 6px;
-            background: #222;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #e5e9ef;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
         }
 
-        button:hover {
-            opacity: 0.9;
+        .content-box h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 25px;
+            color: #1f2937;
         }
 
-        #results {
-            margin-top: 25px;
+        .content-box p {
+            margin: 0 0 15px;
+            color: #606b75;
+        }
+
+        .content-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .word-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 10px;
+            margin-top: 20px;
         }
 
         .word {
-            background: white;
-            padding: 12px;
-            border-radius: 6px;
+            background: #f6f8fb;
+            border: 1px solid #e2e7ed;
+            border-radius: 8px;
+            padding: 10px;
             text-align: center;
-            font-weight: bold;
-            border: 1px solid #ddd;
+            font-weight: 600;
+            color: #374151;
         }
 
-        section {
-            background: white;
-            margin-top: 25px;
-            padding: 25px;
-            border-radius: 12px;
+        .tips {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .tip {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid #e5e9ef;
+        }
+
+        .tip h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .tip p {
+            margin: 0;
+            color: #66717c;
+        }
+
+        .faq {
+            background: #ffffff;
+            margin-top: 18px;
+            padding: 23px 26px;
+            border-radius: 13px;
+            border: 1px solid #e5e9ef;
+        }
+
+        .faq h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .faq p {
+            margin: 0;
+            color: #66717c;
+        }
+
+        footer {
+            margin-top: 45px;
+            background: #ffffff;
+            border-top: 1px solid #e4e8ee;
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            color: #7a838c;
+            font-size: 14px;
+        }
+
+        @media (max-width: 750px) {
+            .hero {
+                padding: 35px 22px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .tips {
+                grid-template-columns: 1fr;
+            }
+
+            .word-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 450px) {
+            .container {
+                width: 94%;
+            }
+
+            .hero h1 {
+                font-size: 27px;
+            }
+
+            .word-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-box {
+                padding: 23px;
+            }
         }
     </style>
 </head>
@@ -104,166 +258,204 @@
 <body>
 
 <header>
-    <h1>5 Letter Words</h1>
-    <p>Find five letter words from your clues</p>
+    <div class="container header-content">
+        <p class="logo">5 Letter Words</p>
+        <p class="tagline">A simple place to explore five letter words</p>
+    </div>
 </header>
 
-<main>
+<main class="container">
 
-    <div class="search-box">
+    <section class="hero">
+        <h1>5 Letter Words</h1>
+        <p>
+            Finding the right five letter word can be easier when useful word
+            ideas are organized in one simple place. Explore common words,
+            discover new possibilities, and improve the way you approach
+            everyday word puzzles.
+        </p>
+    </section>
 
-        <h2>5 Letter Word Finder</h2>
-
-        <label for="known">Known Letters</label>
-        <input
-            id="known"
-            type="text"
-            placeholder="Example: A__E_"
-            maxlength="5"
-        >
-
-        <label for="included">Included Letters</label>
-        <input
-            id="included"
-            type="text"
-            placeholder="Letters that must appear"
-        >
-
-        <label for="excluded">Excluded Letters</label>
-        <input
-            id="excluded"
-            type="text"
-            placeholder="Letters that cannot appear"
-        >
-
-        <button onclick="findWords()">Find Words</button>
-
-        <div id="results"></div>
-
+    <div class="section-title">
+        <h2>Explore Five Letter Words</h2>
+        <p>Useful word information for puzzles, games, and daily challenges</p>
     </div>
 
-    <section>
-        <h2>5 Letter Words</h2>
+    <section class="cards">
+
+        <div class="card">
+            <h3>Common Word Ideas</h3>
+            <p>
+                Explore familiar five letter words that can help when a puzzle
+                gives only a few clues or letters.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Letter Patterns</h3>
+            <p>
+                Looking at the position of letters can make a difficult word
+                puzzle easier to understand and solve.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Daily Word Puzzles</h3>
+            <p>
+                Five letter words are popular in many daily word games, making
+                a useful vocabulary list a handy reference.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="content-box">
+        <h2>Why Five Letter Words Matter</h2>
 
         <p>
-            Finding the right five letter word can be challenging when only a
-            few clues are available. This tool helps players organize known,
-            included, and excluded letters to narrow down possible answers.
+            Five letter words are an important part of many modern word
+            puzzles. Their short length makes them easy to enter and compare,
+            while the large number of possible combinations creates plenty of
+            interesting challenges.
         </p>
 
         <p>
-            Enter the letters already known, add letters that must appear in
-            the answer, and list letters that should be avoided. The results
-            will then show matching five letter words.
+            When solving a puzzle, each known letter can provide useful
+            information. A letter in the correct position can reveal part of
+            the answer, while other clues can help narrow down the remaining
+            possibilities.
+        </p>
+
+        <p>
+            Building familiarity with common five letter words can also make
+            players more comfortable with word games. Learning different
+            spelling patterns and word combinations can help players recognize
+            possible answers more quickly.
+        </p>
+    </section>
+
+    <div class="section-title">
+        <h2>Examples Of Five Letter Words</h2>
+        <p>A few simple examples to explore</p>
+    </div>
+
+    <section class="content-box">
+
+        <div class="word-grid">
+            <div class="word">Apple</div>
+            <div class="word">Beach</div>
+            <div class="word">Bread</div>
+            <div class="word">Chair</div>
+            <div class="word">Clean</div>
+            <div class="word">Cloud</div>
+            <div class="word">Dream</div>
+            <div class="word">Earth</div>
+            <div class="word">Green</div>
+            <div class="word">House</div>
+            <div class="word">Light</div>
+            <div class="word">Music</div>
+            <div class="word">Plant</div>
+            <div class="word">River</div>
+            <div class="word">Sound</div>
+        </div>
+
+    </section>
+
+    <div class="section-title">
+        <h2>Ways To Approach A Word Puzzle</h2>
+    </div>
+
+    <section class="tips">
+
+        <div class="tip">
+            <h3>Start With Known Letters</h3>
+            <p>
+                Begin by looking at letters that are already confirmed. Their
+                positions can provide a useful starting point for finding
+                possible words.
+            </p>
+        </div>
+
+        <div class="tip">
+            <h3>Think About Word Structure</h3>
+            <p>
+                Common combinations of letters can help narrow the possibilities
+                when several answers appear to fit the available clues.
+            </p>
+        </div>
+
+        <div class="tip">
+            <h3>Check Every Clue</h3>
+            <p>
+                Carefully consider each available letter and its position.
+                Small details can remove many incorrect possibilities.
+            </p>
+        </div>
+
+        <div class="tip">
+            <h3>Build Vocabulary</h3>
+            <p>
+                Reading and learning new words can make unfamiliar answers
+                easier to recognize during future word challenges.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="content-box">
+        <h2>5 Letter Words For Word Games</h2>
+
+        <p>
+            Word games can be a fun way to practice spelling, vocabulary, and
+            pattern recognition. Five letter challenges are especially popular
+            because the answer length creates a clear structure while still
+            leaving many possible solutions.
+        </p>
+
+        <p>
+            A good word reference can be useful when players want to study
+            possible word patterns or simply discover words they have not seen
+            before. Exploring groups of five letter words can gradually improve
+            vocabulary and make future puzzles more familiar.
+        </p>
+    </section>
+
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <section class="faq">
+        <h3>What Are Five Letter Words?</h3>
+        <p>
+            Five letter words are words made up of exactly five letters. They
+            are commonly used in vocabulary exercises and word puzzle games.
+        </p>
+    </section>
+
+    <section class="faq">
+        <h3>Why Are <a href="https://5letter-words.io/">5 letter words</a> Popular In Games?</h3>
+        <p>
+            Their short length creates a simple format that is easy to play
+            while still offering a wide range of possible words and patterns.
+        </p>
+    </section>
+
+    <section class="faq">
+        <h3>Can Five Letter Words Improve Vocabulary?</h3>
+        <p>
+            Exploring unfamiliar words can help players become more familiar
+            with spelling patterns, meanings, and different combinations of
+            letters.
         </p>
     </section>
 
 </main>
 
-<script>
-    const words = [
-        "about",
-        "above",
-        "after",
-        "again",
-        "apple",
-        "beach",
-        "black",
-        "bread",
-        "bring",
-        "chair",
-        "clean",
-        "clear",
-        "close",
-        "cloud",
-        "dream",
-        "earth",
-        "early",
-        "every",
-        "field",
-        "first",
-        "green",
-        "happy",
-        "house",
-        "large",
-        "learn",
-        "light",
-        "money",
-        "music",
-        "night",
-        "other",
-        "plant",
-        "right",
-        "river",
-        "round",
-        "small",
-        "sound",
-        "table",
-        "today",
-        "water",
-        "world",
-        "write"
-    ];
-
-    function findWords() {
-
-        const known = document
-            .getElementById("known")
-            .value
-            .toLowerCase()
-            .replace(/[^a-z_]/g, "");
-
-        const included = document
-            .getElementById("included")
-            .value
-            .toLowerCase()
-            .replace(/[^a-z]/g, "");
-
-        const excluded = document
-            .getElementById("excluded")
-            .value
-            .toLowerCase()
-            .replace(/[^a-z]/g, "");
-
-        const results = words.filter(word => {
-
-            if (word.length !== 5) {
-                return false;
-            }
-
-            for (let i = 0; i < known.length; i++) {
-                if (known[i] !== "_" && known[i] !== word[i]) {
-                    return false;
-                }
-            }
-
-            for (const letter of included) {
-                if (!word.includes(letter)) {
-                    return false;
-                }
-            }
-
-            for (const letter of excluded) {
-                if (word.includes(letter)) {
-                    return false;
-                }
-            }
-
-            return true;
-        });
-
-        const resultBox = document.getElementById("results");
-
-        if (results.length === 0) {
-            resultBox.innerHTML = "<p>No matching words found.</p>";
-            return;
-        }
-
-        resultBox.innerHTML = results
-            .map(word => `<div class="word">${word}</div>`)
-            .join("");
-    }
-</script>
+<footer>
+    <div class="container">
+        <p>5 Letter Words | Explore words and enjoy word puzzles</p>
+    </div>
+</footer>
 
 </body>
 </html>
