@@ -1,4 +1,269 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>5 Letter Words</title>
+    <meta name="description" content="Find 5 letter words quickly using known, misplaced, and excluded letters.">
+
+    <link rel="canonical" href="https://5letter-words.io/">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .search-box {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 22px;
+            border: 0;
+            border-radius: 6px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        #results {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 10px;
+        }
+
+        .word {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #ddd;
+        }
+
+        section {
+            background: white;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>5 Letter Words</h1>
+    <p>Find five letter words from your clues</p>
+</header>
+
+<main>
+
+    <div class="search-box">
+
+        <h2>5 Letter Word Finder</h2>
+
+        <label for="known">Known Letters</label>
+        <input
+            id="known"
+            type="text"
+            placeholder="Example: A__E_"
+            maxlength="5"
+        >
+
+        <label for="included">Included Letters</label>
+        <input
+            id="included"
+            type="text"
+            placeholder="Letters that must appear"
+        >
+
+        <label for="excluded">Excluded Letters</label>
+        <input
+            id="excluded"
+            type="text"
+            placeholder="Letters that cannot appear"
+        >
+
+        <button onclick="findWords()">Find Words</button>
+
+        <div id="results"></div>
+
+    </div>
+
+    <section>
+        <h2>5 Letter Words</h2>
+
+        <p>
+            Finding the right five letter word can be challenging when only a
+            few clues are available. This tool helps players organize known,
+            included, and excluded letters to narrow down possible answers.
+        </p>
+
+        <p>
+            Enter the letters already known, add letters that must appear in
+            the answer, and list letters that should be avoided. The results
+            will then show matching five letter words.
+        </p>
+    </section>
+
+</main>
+
+<script>
+    const words = [
+        "about",
+        "above",
+        "after",
+        "again",
+        "apple",
+        "beach",
+        "black",
+        "bread",
+        "bring",
+        "chair",
+        "clean",
+        "clear",
+        "close",
+        "cloud",
+        "dream",
+        "earth",
+        "early",
+        "every",
+        "field",
+        "first",
+        "green",
+        "happy",
+        "house",
+        "large",
+        "learn",
+        "light",
+        "money",
+        "music",
+        "night",
+        "other",
+        "plant",
+        "right",
+        "river",
+        "round",
+        "small",
+        "sound",
+        "table",
+        "today",
+        "water",
+        "world",
+        "write"
+    ];
+
+    function findWords() {
+
+        const known = document
+            .getElementById("known")
+            .value
+            .toLowerCase()
+            .replace(/[^a-z_]/g, "");
+
+        const included = document
+            .getElementById("included")
+            .value
+            .toLowerCase()
+            .replace(/[^a-z]/g, "");
+
+        const excluded = document
+            .getElementById("excluded")
+            .value
+            .toLowerCase()
+            .replace(/[^a-z]/g, "");
+
+        const results = words.filter(word => {
+
+            if (word.length !== 5) {
+                return false;
+            }
+
+            for (let i = 0; i < known.length; i++) {
+                if (known[i] !== "_" && known[i] !== word[i]) {
+                    return false;
+                }
+            }
+
+            for (const letter of included) {
+                if (!word.includes(letter)) {
+                    return false;
+                }
+            }
+
+            for (const letter of excluded) {
+                if (word.includes(letter)) {
+                    return false;
+                }
+            }
+
+            return true;
+        });
+
+        const resultBox = document.getElementById("results");
+
+        if (results.length === 0) {
+            resultBox.innerHTML = "<p>No matching words found.</p>";
+            return;
+        }
+
+        resultBox.innerHTML = results
+            .map(word => `<div class="word">${word}</div>`)
+            .join("");
+    }
+</script>
+
+</body>
+</html>
